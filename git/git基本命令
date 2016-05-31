@@ -1,0 +1,27 @@
+linux 命令 
+mkdir test （创建文件夹test）
+cd test （切换到test目录）
+touch a.md （新建a.md文件）
+
+
+git命令   任何操作都需要以 git 命令为开头
+本地操作：
+git init  初始化一个本地仓库  新建为 master主分支
+git status  查看当前分支状态
+git add  <文件名>   将文件更改添加到分支状态中 相当于文件等待被提交
+git commit -m <"描述信息">  提交并添加描述信息
+git log  查看提交日志
+git branch  查看分支   前面带*号的为当前所在分支
+git branch <分支名称>  新建分支
+git checkout <分支名>  切换分支
+git checkout -b <分支名>  新建分支并切换到此分支
+git merge <分支名>   将指定分支名合并到当前分支  一般为切换到主分支使用此命令
+git branch -d <分支名>  有新建分支，那肯定有删除分支，假如这个分支新建错了，或者a分支的代码已经顺利合并到 master 分支来了，那么a分支没用了，需要删除，这个时候执行 git branch -d a 就可以把a分支删除了
+git branch -D <分支名>  强制删除分支，不管分支是否有未提交合并的代码
+git tag 查看标签
+git tag <标签名> 在当前状态下新建一个标签，可用来当作版本号使用
+git checkout <标签名> 切换到标签名指定的状态
+
+远征仓库操作:
+git clone <远程地址>  从远征仓库拷贝过来代码，相当于建立本地分支
+git push  将本地修改后的代码提交到远程仓库
