@@ -1,0 +1,6 @@
+使用SVN
+
+
+命令 svn checkout <URL>
+例如：https://github.com/ab61636452/ToolLibrary/blob/master/windows32.exe
+需要将URL 更改为：https://github.com/ab61636452/ToolLibrary/trunk//windows32.exe
