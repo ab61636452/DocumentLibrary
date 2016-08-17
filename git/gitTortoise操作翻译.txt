@@ -1,0 +1,55 @@
+pull 				拉
+fetch   			拿取
+push				推
+diff    			查看不同
+diff with previous version    	与以前的版本比较
+show log			显示日志
+show ref log			显示引用日志
+browse references		浏览参考
+daemon				守护进程
+revison graph			修改图
+repo browser			回购的浏览器
+check for modifications		检查修改
+rebase				垫底
+stash save			储藏保存
+bisect start  			对开始       
+resolve				决定
+revert				回复
+clean up			清理
+seitch   checkout		开关检测
+merge				合并
+create branch			创建分支		
+create tag			创建标签
+export				出口
+add				添加
+submodule add			子模块添加
+create patch serial		创建补丁系列
+apply patch serial		应用补丁系列
+settings 			设置
+help				帮助
+about				关于
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
