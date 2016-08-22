@@ -1,0 +1,95 @@
+参数简写
+ion=id or name   ID 或者名称
+
+dcoker info  查看基本信息
+
+
+docker run -i -t ubuntu /bin/bash       运行一个容器
+参数详解：
+基本:
+--name 		为运行的容器指定名称
+-i   		保证STDIN开启    
+-t   		分配一个伪tty终端
+-d		将容器放在后台运行 
+-p port:port	映射宿主机端口到容器端口
+--entrypoint    可传递覆盖ENTRYPOINT构建时的命令
+-w <目录>	覆盖构建时 WORKDIR 指定的工作目录
+-e <'变量'>	传递变量
+-u <用户>	指定运行的用户
+额外: 
+--restart=always 容器自动退出重启
+--restart=on-failure:x 容器非0退出重启x次
+ubuntu:14:11   	运行的系统镜像名称，若本地没有会去下载,，冒号后位版本号
+
+docker exec -d <id or name> touch /ect/new_config_file  在容器内部运行进程，分交互与后台模式，基本参数与 run相同
+
+
+docker start  <ion>		启动一个指定容器
+docker restart	<ion>		重启一个指定容器
+docker rm  <ion>             	删除容器
+dorcer rm 'decker ps -a -q'  	删除所有容器
+docker attach <ion> 		重新附着到容器的会话	
+docker logs -ft <ion>		查看容器日志 -f 持续监控  t时间戳
+docker logs --tail 10 <ion>  	获取最后10行日志
+docker top <ion>		查看容器内的进行信息
+docker stop <ion>		停止一个容器
+docker images | <name>		获取镜像列表
+docker history <ion>		查看镜像如何构建
+docker pull <hub> images:tag	到镜像仓库拉取镜像 
+docker push <用户名/仓库>	将镜像推送到镜像仓库中
+docker rmi <用户名>/<仓库>	删除镜像
+docker run -p port:port	registry 创建本地镜像registry容器
+docker tag <ion> <ip:poer/用户名/仓库>   为镜像打上标签，为本地registry使用
+docker push <ip:poer/用户名/仓库>	 将镜像推送到本地registry中
+
+curl id:port  访问指定URL
+
+docker ps -a	查看当前系统中的容器列表  
+参数详解：
+-a 列出所有容器列表，包括停止的
+-l 列出最后一次运行的容器
+-n x  显示最后x个容器
+-q 只返回ID信息
+
+docker insperct <ion> 查看容器详细信息
+参数详解：
+--format='{{ .State.Runing}}'		    查看运行状态
+--format='{{ .NetworkSetting.IPAddress}}'   查看IP地址
+
+
+命令创建镜像:
+docker commit -m <描述> --author=<作者> <ion> <用户名>/<仓库名>
+
+dockerfile方式创建:
+mkdir <目录名>    创建目录
+cd <目录名>
+touch <文件名>    创建dockerfile文件
+dockerfile文件内容:
+ #version:0.01    			#号为注释
+ FROM <imgas:tag>			从指定的基础镜像运行一个容器
+ MAINTAINER <name> <'e-mail'>   	添加作者及邮件地址
+ RUN <指定linux命令>     		执行指定的linux命令
+ EXPOSE <port>				开启指定的端口
+其他 dockerfile文件内容命令：
+ENV <变量名> <值>  	 	  设定变量
+CMD <命令>         	  	  容器启动时执行的命令，可被docker run 传递命令覆盖
+ENTRYPOINT <命令>  	  	  容器启动时执行命令，可接收docker run 传递执行参数
+WORKDIR	   <工作目录>	   	  指定工作目录 run cmd 等命令会在此目录中执行
+USER	<用户名>	   	  指定运行时使用的用户名
+VOLUME	<卷名>		   	  添加多个docker共享卷
+ADD  <源文件地址> <目标地址>	  构建时将文件复制到容器指定位置，若是压缩包会自动解压
+COPY <源文件地址> <目标地址>	  同上，单纯复制，不会自动解压
+ONBUILD	<构建命令>		  触发器，制作镜像模板时使用，只会在子镜像中运行
+
+docker build -t='用户名/仓库名:tag'  	执行dockerfile构造文件，指定仓库名及标签
+docker build -t='用户名/仓库名:tag' git@github:用户名/目录	执行远程仓库的dockerfile构造文件，指定仓库名及标签
+参数详解：
+--no-ceche  忽略构建缓存
+
+
+容器内命令：
+cat /ect/hosts  查看主机信息文件
+ip a     查看主机IP信息
+ps  -aux   查看主机进程信息
+apt-get update && apt-get install vim  安装vim软件
+exit  退出容器
