@@ -41,6 +41,8 @@ docker rmi <用户名>/<仓库>	删除镜像
 docker run -p port:port	registry 创建本地镜像registry容器
 docker tag <ion> <ip:poer/用户名/仓库>   为镜像打上标签，为本地registry使用
 docker push <ip:poer/用户名/仓库>	 将镜像推送到本地registry中
+docker stats			查看docker运行状态
+docker cp <ion>:/docker路径 /宿主机路径 
 
 curl id:port  访问指定URL
 
