@@ -12,6 +12,7 @@ git add  <文件名>   将文件更改添加到分支状态中 相当于文件�
 git add -f App.class  强制添加到暂存区
 git commit -m <"描述信息">  提交并添加描述信息
 git branch  查看分支   前面带*号的为当前所在分支
+git branch  -a  查看远程分支
 git branch <分支名称>  新建分支
 git checkout <分支名>  切换分支
 git checkout -b <分支名>  新建分支并切换到此分支
