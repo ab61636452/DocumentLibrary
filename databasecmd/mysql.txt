@@ -1,0 +1,1 @@
+show OPEN TABLES where In_use > 0;    查询锁表情况

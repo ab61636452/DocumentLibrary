@@ -1,8 +1,6 @@
 参数简写
 ion=id or name   ID 或者名称
-
 dcoker info  查看基本信息
-
 
 docker run -i -t ubuntu /bin/bash       运行一个容器
 参数详解：
@@ -34,7 +32,7 @@ docker logs --tail 10 <ion>  	获取最后10行日志
 docker top <ion>		查看容器内的进行信息
 docker stop <ion>		停止一个容器
 docker images | <name>		获取镜像列表
-docker history <ion>		查看镜像如何构建
+docker history <ion>		查看本地容器如何构建运行
 docker pull <hub> images:tag	到镜像仓库拉取镜像 
 docker push <用户名/仓库>	将镜像推送到镜像仓库中
 docker rmi <用户名>/<仓库>	删除镜像
@@ -87,7 +85,6 @@ docker build -t='用户名/仓库名:tag'  	执行dockerfile构造文件，指定仓库名及标签
 docker build -t='用户名/仓库名:tag' git@github:用户名/目录	执行远程仓库的dockerfile构造文件，指定仓库名及标签
 参数详解：
 --no-ceche  忽略构建缓存
-
 
 容器内命令：
 cat /ect/hosts  查看主机信息文件

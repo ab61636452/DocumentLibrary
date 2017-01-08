@@ -1,0 +1,13 @@
+jstat -gcutil -h 10   <pid>    2000        每2秒打印一次  10行打印一次行号  
+
+
+
+服务器上线准备工作:
+wesuit-app,cas-app项目服务器  微信白名单
+
+所有增加 RDS 白名单
+增加hosts文件
+增加jenkins地址
+docker登陆  
+非华东一服务器设置docker加速器
+
